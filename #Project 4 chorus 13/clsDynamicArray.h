@@ -105,5 +105,41 @@ public:
 		OriginalArray = _TempArray;
 
 	}
+
+	// The Class has a method that takes an index as a parameter and returns the value at the given index in the original array. If the index is out of range, it will return the default value of the type (0 for int, 0.0 for float, etc.).
+	T GetItem(int Index)
+	{
+		return OriginalArray[Index];
+	}
+	 
+	// The Class has a method that reverses the items of the array.
+	void Reverse()
+	{
+		// Create a new temporary array with the same size as the original array
+		_TempArray = new T[_Size];
+		// Reverse the items of the original array and copy them to the temporary array
+		int counter=0;
+		
+			for (int i = _Size - 1;i >= 0;i--)
+		{
+				_TempArray[counter] = OriginalArray[i];
+				
+				counter++;
+		}
+	
+			delete[] OriginalArray;// Delete the original array to free the memory
+			OriginalArray = _TempArray;// Set the original array to point to the temporary array
+
+	}
+
+	// The Class has a method that clears the array by setting the size to 0 and creating a new original array with size 0.
+	void Clear()
+	{
+		// Clear the array by setting the size to 0 and creating a new original array with size 0
+		_Size = 0;
+		_TempArray = new T[0];
+		delete[] OriginalArray;// Delete the original array to free the memory
+		OriginalArray = new T[_Size];// Set the original array to point to the new original array with size 0
+	}
 };
 
