@@ -71,11 +71,37 @@ int main()
 	
 	
 	// Clear the Array and print the size of the array and the items of the array after clearing it.
+	clsDynamicArray<int>MyDynamicArray3(6);
 	MyDynamicArray2.Clear();
 	cout << "After Clearing the Array, the Size of the Array is : " << MyDynamicArray2.Size() << endl;
 	MyDynamicArray2.PrintList();
 
 
+	MyDynamicArray3.SetItem(0, 100);
+	MyDynamicArray3.SetItem(1, 200);
+	MyDynamicArray3.SetItem(2, 300);
+	MyDynamicArray3.SetItem(3, 400);
+	MyDynamicArray3.SetItem(4, 500);
+	cout << "\nSet the items of the array to 100, 200, 300, 400 and 5." << endl;
+	MyDynamicArray3.PrintList();
+
+	int  Index = MyDynamicArray3.Find(300);
+	if (Index == -1)
+	{
+		
+		cout << "\nThe Item 300 is not found in the Array." << endl;
+	}
+	else
+	{
+		
+		cout << "\nThe Item 300 is found at index : " << Index << endl;
+	}
 	
+	MyDynamicArray3.DeleteItemAt(0);
+	cout << "\n\nAfter Deleting the item at index 0, the Array size is : ";
+	cout << MyDynamicArray3.Size() << endl;
+	MyDynamicArray3.PrintList();
+
+
 }
 

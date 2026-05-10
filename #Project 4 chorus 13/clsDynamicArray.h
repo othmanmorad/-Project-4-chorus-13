@@ -142,31 +142,38 @@ public:
 		OriginalArray = new T[_Size];// Set the original array to point to the new original array with size 0
 	}
 
-
+	// The Class has a method that takes an index as a parameter and deletes the item at the given index in the original array. If the index is out of range, it will return false, otherwise it will return true.
 	bool DeleteItemAt(int Index)
 	{
 		if (Index >= _Size || Index < 0)
 		{
 			return false;
 		}
+		// Delete the item at the given index in the original array by creating a new temporary array with size one less than the original array and copying the items from the original array to the temporary array except for the item at the given index.
 		_Size--;
 		_TempArray = new T[_Size];
+
+		//COPY FROM THE BEGINNING TO THE INDEX TO THE TEMPORARY ARRAY
 		for (int i = 0; i < Index; i++)
 		{
 			_TempArray[i] = OriginalArray[i];
 		}
+		//copy from after the index to the end of the original array to the temporary array
+		for (int i = Index + 1; i < _Size + 1; i++)
 
-		for (int i = Index+1; i < _Size + 1; i++)
 		{
 			_TempArray[i - 1] = OriginalArray[i];
 		}
-		delete[] OriginalArray;
-		OriginalArray = _TempArray;
+		delete[] OriginalArray;// Delete the original array to free the memory
+		OriginalArray = _TempArray;// Set the original array to point to the temporary array
 		return true;
-	}
 
+	}
+   // The Class has a method that deletes the first item in the array by calling the DeleteItemAt method with index 0 and a method that deletes the last item in the array by calling the DeleteItemAt method with index size-1.
 	void DeleteFirstItem()
 	{
+	
+	
 		DeleteItemAt(0);
 
 	}
@@ -176,6 +183,37 @@ public:
 
 	}
 
+	//find by value
+	int Find(T Value)
+	{
+		//for each item in the original array, if the item is equal to the given value, return the index of the item in the original array. If the item is not found, return -1.
+		for (int i = 0;i < _Size ;i++)
+		{
+			if (OriginalArray[i] == Value)
+			{
+				return i;
+			
+			}
+			
+		}
+		return -1;
+		
+	}
+	//Delet by value
+	bool DeleteItem(T Value)
+	{
+		// Find the index of the item with the given value in the original array by calling the Find method. 
+		int Index = Find(Value);
+		if (Index == -1)
+		{
+			return false;
+		}
+		
+	
+			 DeleteItemAt(Index);
+			 return true;
+		
+	}
 
 };
 
