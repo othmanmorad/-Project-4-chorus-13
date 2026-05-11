@@ -215,6 +215,40 @@ public:
 		
 	}
 
+	
+	bool InsertAt(T Index, T Value)
+	{
+		// Insert the item with the given value at the given index in the original array by creating a new temporary array with size one more than the original array and copying the items from the original array to the temporary array except for the item at the given index where the new item will be inserted. If the index is out of range, it will return false, otherwise it will return true.
+		if (Index > _Size || Index < 0)
+
+		{
+			return false;
+		} 
+		//increse the size of the array by 1 
+		_Size++;
+		_TempArray = new T[_Size];
+
+		//copy from the beginning to the index to the temporary array
+		for (int i = 0;i < Index;i++)
+		{
+			_TempArray[i] = OriginalArray[i];
+		}
+		//insert the new item at the given index in the temporary array
+		_TempArray[Index] = Value;
+
+		//copy from after the index to the end of the original array to the temporary array
+		for (int i = Index ;i < _Size-1;i++)
+		{
+			_TempArray[i+1] = OriginalArray[i];
+		}
+		
+		delete[] OriginalArray;
+		OriginalArray = _TempArray;
+		return true;
+	
+	
+	}
+
 };
 
 

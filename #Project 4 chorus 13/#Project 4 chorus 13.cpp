@@ -71,7 +71,7 @@ int main()
 	
 	
 	// Clear the Array and print the size of the array and the items of the array after clearing it.
-	clsDynamicArray<int>MyDynamicArray3(6);
+	clsDynamicArray<int>MyDynamicArray3(5);
 	MyDynamicArray2.Clear();
 	cout << "After Clearing the Array, the Size of the Array is : " << MyDynamicArray2.Size() << endl;
 	MyDynamicArray2.PrintList();
@@ -83,6 +83,10 @@ int main()
 	MyDynamicArray3.SetItem(3, 400);
 	MyDynamicArray3.SetItem(4, 500);
 	cout << "\nSet the items of the array to 100, 200, 300, 400 and 5." << endl;
+	MyDynamicArray3.PrintList();
+	MyDynamicArray3.InsertAt(5, 600);
+	cout << "\n\nAfter Inserting the item 600 at index 5, the Array size is : ";
+	cout << MyDynamicArray3.Size() << endl;
 	MyDynamicArray3.PrintList();
 
 	int  Index = MyDynamicArray3.Find(300);
@@ -102,6 +106,14 @@ int main()
 	cout << MyDynamicArray3.Size() << endl;
 	MyDynamicArray3.PrintList();
 
+	MyDynamicArray3.InsertAt(2, 250);
+	cout << "\n\nAfter Inserting the item 250 at index 2, the Array size is : ";
+	cout << MyDynamicArray3.Size() << endl;
+	MyDynamicArray3.PrintList();
+
+
+
+	
 
 }
 
