@@ -112,8 +112,35 @@ int main()
 	MyDynamicArray3.PrintList();
 
 
-
+	clsDynamicArray<int> MyDynamicArray4(5);
 	
+	MyDynamicArray4.SetItem(0, 10);
+	MyDynamicArray4.SetItem(1, 20);
+	MyDynamicArray4.SetItem(2, 30);
+	MyDynamicArray4.SetItem(3, 40);
+	MyDynamicArray4.SetItem(4, 50);
+	cout << "\n\nAnother Dynamic Array of integers with a size of 5 and set the items of the array to 10, 20, 30, 40 and 50." << endl;
+	MyDynamicArray4.PrintList();
+
+	MyDynamicArray4.InsertAt(2, 25);
+	cout << "\n\nAfter Inserting the item 25 at index 2 : ";
+	MyDynamicArray4.PrintList();
+
+	MyDynamicArray4.InsertAtBiginning(5);
+	cout << "\n\nAfter Inserting the item 5 at the beginning of the Array : ";
+	MyDynamicArray4.PrintList();
+
+	MyDynamicArray4.InsertAtEnd(60);
+	cout << "\n\nAfter Inserting the item 60 at the end of the Array : ";
+	MyDynamicArray4.PrintList();
+
+	MyDynamicArray4.InsertAfter(2, 27);
+	cout << "\n\nAfter Inserting the item 27 after index 2 : ";
+	MyDynamicArray4.PrintList();
+
+	MyDynamicArray4.InsertBefore(4,25);
+	cout << "\n\nAfter Inserting the item 25 before index 4 : ";
+	MyDynamicArray4.PrintList();
 
 }
 

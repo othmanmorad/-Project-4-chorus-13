@@ -249,6 +249,40 @@ public:
 	
 	}
 
+	void InsertAtBiginning(T Value)
+	{
+		InsertAt(0, Value);
+	}
+
+	bool InsertAtEnd(T Value)
+	{
+		
+		return InsertAt(_Size, Value);
+	}
+
+	bool InsertAfter(T Index, T Value)
+	{
+		if (Index >= _Size )
+		{
+			return InsertAt(_Size-1,Value);
+		}
+		else
+		{
+			return InsertAt(Index + 1, Value);
+		}
+	}
+
+	bool InsertBefore(T Index, T Value)
+	{
+		if (Index < 1)
+		{
+			return InsertAt(0, Value);
+		}
+		else
+		{
+			return InsertAt(Index - 1, Value);
+		}
+	}
 };
 
 
